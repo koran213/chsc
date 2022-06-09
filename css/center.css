@@ -1,0 +1,82 @@
+.card {
+width: 900px;
+height: auto;
+background: #FAE8E0;
+margin: 0 auto;
+padding: 10px;
+}
+
+.index {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.section {
+width: 95%;
+margin: 0 auto;
+margin-bottom: 10px;
+color: #67595E;
+padding: 10px 0;
+border-radius: 5px;
+}
+
+.client {
+  background: #efbdc5;
+}
+
+.target {
+  background: #B6E2D3;
+}
+
+.section p {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.label {
+  background: #b1858d;
+  color: white;
+  text-align: center;
+  line-height: normal;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.data {
+  background:white;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.tlabel {
+  background: #b1858d;
+  color: white;
+  text-align: center;
+  line-height: normal;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.textarea {
+  width: 95%;
+  height: auto;
+  background:white;
+  margin: 0;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+
+}
+.flex {
+  display: flex;
+}
+dt {
+  display: flex;
+}

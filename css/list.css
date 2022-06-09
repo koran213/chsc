@@ -1,0 +1,19 @@
+body {
+  background: #FAE8E0
+}
+
+table {
+  border-collapse: collapse
+}
+
+table th, table td {
+  border: 1px #67595E solid;
+  padding: 5px;
+  margin: 0;
+  background: white;
+}
+
+.index {
+  background: #67595E;
+  color: azure;
+}
