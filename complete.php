@@ -12,14 +12,6 @@ include('post_data.php');
 include("./funcs.php");
 $pdo = db_conn();
 
-// try {
-//   //Password:MAMP='root',XAMPP=''
-//   //$pdo = new PDO('mysql:dbname=さくらDB名;charset=utf8;host=さくらMySQL(ドメイン）','ユーザ名','接続先パスワード');
-//   $pdo = new PDO('mysql:dbname=chsc;charset=utf8;host=localhost','root','');
-// } catch (PDOException $e) {
-//   exit('DBConnection Error:'.$e->getMessage());
-// }
-
 //３．データ登録SQL作成
 $sql = "INSERT INTO contact (cname,cmail,cage,target,tname,tage,tsex,tpcode,taddress,rtype,contact,detail)
 VALUES(:cname, :cmail, :cage, :target, :tname, :tage, :tsex, :tpcode, :taddress, :rtype, :contact, :detail)";
@@ -50,17 +42,8 @@ if($status==false){
   //５．メール送信
 
 }
-
-
-//文字作成
-// $str = date("Y-m-d H:i:s").$c.$cname.$c.$cmail.$c.$cage.$c.$target.$c.$tname.$c.$tage.$c.$tpcode.$c.$taddress.$c.$ctype.$c.$contact.$c.$detail;
-
-//File書き込み
-// $file = fopen("request.csv","a");	// ファイル読み込み
-// fwrite($file, $str."\n");//.で文字を接続（+ではない）
-// fclose($file);
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,13 +62,6 @@ if($status==false){
   <p>送信完了後３稼働日以内に、センターの担当者より返信いたします。今しばらくお待ちください。</p>
  	<p>なお、センターからの返信の前に、今回のご相談に変更が生じた場合は、自動返信メール内に記載のある担当センターまでお知らせください。</p>
  	<p><a href="index.html">ご相談フォームトップへ</p>
-
-  <form id="form1" class="form_wrap" action="./download.php" method="POST">
-    <div class="csv_import_textarea">
-      <input type="hidden" name="key" value="runrunrun">
-      <input type="submit" value="csvダウンロード">
-    <div>
-  </form>
 
 </body>
 </html>

@@ -10,25 +10,13 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form name="form1" action="login_act.php" method="post" class="register-form">
-        <input type="text"  name="lid" placeholder="id"/>
-        <input type="password"  name="lpw" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
-        <button>login</button>
+      <form  class="login-form" name="form1" action="user_login_act.php" method="post">
+        <input type="text" name="lid" class="type" placeholder="username"/>
+        <input type="password" name="lpw" class="type" placeholder="password"/>
+        <input type="submit" value="LOGIN" class="button ">
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
     </div>
   </div>
-  <script>
-  //  $('.message a').click(function(){
-  //  $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-  // });
-  </script>  
 </body>
 </html>

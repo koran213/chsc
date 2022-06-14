@@ -1,8 +1,13 @@
 <?php
+//0. SESSION開始！！
+session_start();
 
 include("./funcs.php");
 $pdo = db_conn();
 $id = $_GET['id'];
+
+//ログイン確認
+sschk();
 
 $stmt = $pdo -> prepare('SELECT * FROM user WHERE id= :id');
 $stmt->bindValue(':id',$id,PDO::PARAM_INT);
@@ -26,6 +31,9 @@ if($status==false) {
 </head>
 
 <body>
+ログインユーザー：<?=$_SESSION["uname"]?>
+<a href="logout.php">ログアウト</a><br/>
+
   <h1>利用者更新</h1>
   <form action="user_update.php" method="POST">
     <dl class="dlTable">
@@ -35,17 +43,18 @@ if($status==false) {
       <dd><input type="text" name="uname" id="uname" value="<?=$row["uname"]?>"></dd>
       <dt><label for="lid">利用者ID</label></dt>
       <dd><input type="text" name="lid" id="lid" value="<?=$row["lid"]?>"></dd>
-      <dt><label for="lpw">利用者パスワード</label></dt>
-      <dd><input type="text" name="lpw" id="lpw" value="<?=$row["lpw"]?>"></dd>
-      <dt><label for="kanri">管理フラグ</label></dt>
-      <dd><input type="text" name="kanri" id="kanri" value="<?=$row["kanri"]?>"></dd>
+      <dt><label for="kanri_flg">ユーザー種別</label></dt>
+      <dd><input type="text" name="kanri_flg" id="kanri_flg" value="<?=$row["kanri_flg"]?>"></dd>
       <dt><label for="center">センター</label></dt>
       <dd><input type="text" name="center" id="center" value="<?=$row["center"]?>"></dd>
+      <dt><label for="life_flg">在職種別</label></dt>
+      <dd><input type="text" name="life_flg" id="life_flg" value="<?=$row["life_flg"]?>"></dd>
     </dl>
     <input type="hidden" name="id" value="<?=$id?>">
     <input type="submit" value="送信">
     
   </form>
+  <a href="user_list.php">一覧に戻る</a>
   
 </body>
 </html>

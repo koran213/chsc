@@ -1,9 +1,6 @@
 <?php
-
-//1. DB接続
-// try {
-//   //Password:MAMP='root',XAMPP=''
-//   //$pdo = new PDO('mysql:dbname=さくらDB名;charset=utf8;host=さくらMySQL(ドメイン）','ユーザ名','接続先パスワード');
+//0. SESSION開始！！
+session_start();
 
 //(1) 取得するデータのidを指定
  $id = $_GET['id'];
@@ -11,9 +8,12 @@
 //(2) データベースに接続
 include("./funcs.php");
 $pdo = db_conn();
+
+//ログイン確認
+sschk();
   
 // (3) SQL作成
-$sql = 'SELECT * FROM contact WHERE id= :id';//WHERE contact.id=idにより一つ分のid変数を指定する
+$sql = 'SELECT * FROM contact WHERE id= :id';//WHERE contact.id=idによりid変数を指定
 $stmt = $pdo -> prepare($sql);
 
 // (4) 登録するデータをセット
@@ -28,11 +28,6 @@ $case=$stmt->fetch(PDO::FETCH_ASSOC);
 $stmt = null;
 $pdo = null;
 
-// }catch (PDOException $e){
-// 	print('Error:'.$e->getMessage());
-// 	die();
-// }
-
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +41,8 @@ $pdo = null;
 </head>
 
 <body>
+ログインユーザー：<?=$_SESSION["uname"]?>
+<a href="logout.php">ログアウト</a><br/>
  <div class="card">
    <div class="index flex">
      <div class="no">id:<?php echo htmlspecialchars($id,ENT_QUOTES,'UTF-8'); ?></div>
@@ -97,7 +94,7 @@ $pdo = null;
       </div>
     </dl> 
  </div>
-
+ <a href="list.php">一覧に戻る</a><br/>
   
 </body>
 </html>
