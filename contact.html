@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>対応詳細</title>
+  <script src="https://kit.fontawesome.com/cc574eb474.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/contact.css">
+
+</head>
+
+<body>
+  <div class="wrap">
+  
+    <header>
+      <div class="pagetitle">
+        <p>新宿区高齢者総合相談センター</p>
+      </div> 
+      <div class="pagetitle">
+        <p>ご相談フォーム</p>
+      </div>
+      </header>
+
+    <main>  
+
+      <div class="section">
+        <h1>相談入力</h1>
+        <form action="confirm.php" method="post" class="request">
+          <div class="section_label">
+            <p>相談者</p>
+          </div> 
+          <dl class="dlTable">
+            <dt><label for="cname" class="cname label"><p>氏名</p></label></dt>
+            <dd><input type="text" name="cname" id="cname" class="input_text"></dd>
+            <dt><label for="cage" class="cage label"><p>年齢</p></label></dt>
+            <dd><input type="text" name="cage" id="cage"  class="input_text" style="width: 50px;"></dd>
+            <dt><label for="ctel" class="target label"><p>電話番号</p></label></dt>
+            <dd><input type="text" name="ctel" id="ctel" class="input_text"></dd>
+            <dt><label for="cmail" class="target label"><p>メールアドレス</p></label></dt>
+            <dd><input type="text" name="cmail" id="cmail" class="input_text"></dd>
+            <dt><label for="cway" class="target label"><p>希望する連絡手段</p></label></dt>
+            <dd>
+              <ul>
+                <li><input type="radio" name="cway" value="電話">電話</li>
+                <li><input type="radio" name="cway" value="メール">メール</li>
+              </ul>
+            </dd>
+            <dt><label for="target" class="cmail label"><p>支援対象との間柄</p></label></dt>
+            <dd>
+              <ul>
+                <li><input type="radio" name="target" value="本人" id ="honnin" onclick="check(cname.value,cage.value)">本人</li>
+                <li><input type="radio" name="target" value="家族・近親者">家族・近親者</li>
+                <li><input type="radio" name="target" value="友人・近所">友人・近所</li>
+              </ul>
+            </dd>
+          </dl>
+
+          <div class="section_label">
+            <p>支援対象</p>
+          </div>
+          <dl class="dlTable">
+            <dt><label for="tname" class="cname label"><p>氏名</p></label></dt>
+            <dd><input type="text" name="tname" id="tname" class="input_text"></dd>
+            <dt><label for="tage" class="cage label"><p>年齢</p></label></dt>
+            <dd><input type="text" name="tage" id="tage" class="input_text" style="width: 50px;"></dd>
+            <dt><label for="tsex" class="tsex label"><p>性別</p></label></dt>
+            <dd>
+              <ul>
+                <li><input type="radio" name="tsex" value="女">女</li>
+                <li><input type="radio" name="tsex" value="男">男</li>
+              </ul>
+            </dd>
+            <dt><label for="tpcode" class="cage label"><p>〒</p></label></dt>
+            <dd><input type="text" name="tpcode" id="tpcode" class="input_text"></dd>
+
+            <dt><label for="taddress" class="cmail label"><p>住所</p></label></dt>
+            <dd><input type="text" name="taddress" id="taddress" class="input_text"></dd>
+          </dl>  
+
+          <div class="section_label">
+            <p>相談内容</p>
+          </div>
+          <dl class="dlTable">
+            <dt class="row_high"><label for="ctype" class="ctype label"><p>相談の種類</p></label></dt>
+            <dd class="row_high">
+              <ul>
+                <p>
+                <li><input type="radio" name="ctype" value="介護保険認定申請">介護保険認定申請</li>
+                <li><input type="radio" name="ctype" value="健康・医療">健康・医療</li>
+                <li><input type="radio" name="ctype" value="生活・暮らし全般">生活・暮らし全般</li></p>
+                <p><li><input type="radio" name="ctype" value="権利擁護・虐待">権利擁護・虐待</li>
+                <li><input type="radio" name="ctype" value="家族・介護者支援">家族・介護者支援</li></p>
+              </ul>
+            </dd>
+            <dt><label for="contact" class="contact label"><p>希望する応対</p></label></dt>
+            <dd>
+              <ul>
+                <li><input type="radio" name="contact" value="メール返信">メール返信</li>
+                <li><input type="radio" name="contact" value="面談（zoom）">面談（オンライン）</li>
+                <li><input type="radio" name="contact" value="面談（電話）">面談（電話）</li>
+                <li><input type="radio" name="contact" value="面談（対面）">面談（対面）</li>
+              </ul>
+            </dd>
+            <dt class="row_high_2"><label for="detail" class="detail tlabel"><p>相談の内容</p></label></dt>
+            <dd class="row_high_2"><textarea name="detail" id="detail" cols="30" rows="10" class="textarea">相談の詳細</textarea></dd>
+          </dl>
+          <input type="submit" class="next" value="入力内容確認">
+        </form>
+      </div>
+    </main>
+  </div>
+  <script>
+    function check(browser1,browser2){
+      document.getElementById("tname").value=browser1;
+      document.getElementById("tage").value=browser2;
+    }
+    </script>
+
+
+</body>
+</html>

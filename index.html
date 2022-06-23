@@ -4,73 +4,103 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+  <script src="https://kit.fontawesome.com/cc574eb474.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-  <title>ご相談・地域包括支援センター</title>
+ <title>センター検索</title>
 </head>
+
 <body>
-  <h1>地域包括支援センター ご相談フォーム</h1>
-  <p>ご相談の対応窓口は、<span class="attention">対象者の住所がある市区町村</span>になります。</p>
-  <p>ご相談者と対象者の住所が異なる場合は、お気をつけください。</p>
-    <form action="confirm.php" method="post">
-    <dl class="dlTable">
-      <dt><label for="cname">相談者のお名前</label></dt>
-      <dd><input type="text" name="cname" id="cname"></dd>
-      <dt><label for="cmail">相談者のメールアドレス</label></dt>
-      <dd><input type="text" name="cmail" id="cmail"></dd>
-      <dt><label for="cage">相談者の年齢</label></dt>
-      <dd><input type="text" name="cage" id="cage"></dd>
-      <dt><label for="target" id="target">相談の対象者</label></dt>
-      <dd>
-        <ul>
-          <li><input type="radio" name="target" value="本人" id ="honnin" onclick="check(cname.value,cage.value)">本人</li>
-          <li><input type="radio" name="target" value="家族・近親者">家族・近親者</li>
-          <li><input type="radio" name="target" value="友人・近所">友人・近所</li>
-        </ul>
-      </dd>
-      <dt><label for="tname">対象者のお名前</label></dt>
-      <dd><input type="text" name="tname" id="tname" class="text1"></dd>
-      <dt><label for="tage">対象者の年齢</label></dt>
-      <dd><input type="text" name="tage" id="tage"></dd>
-      <dt><label for="tsex">対象者の性別</label></dt>
-      <dd>
-        <ul>
-        <li><input type="radio" name="tsex" value="女性">女性</li>
-        <li><input type="radio" name="tsex" value="男性">男性</li></dd>
-      <dt><label for="tpcode">対象者の住所（郵便番号）</label></dt>
-       <!-- <dd><input type="text" name="tpcode" id="tpcode"></dd> -->
-      <!-- ▼郵便番号入力フィールド(7桁) -->
-      <dd><input type="text" name="tpcode" ></dd>
-      <!-- ▼住所入力フィールド(都道府県) -->
-      <!-- <input type="text" name="pref01" size="20"> --> 
-      <dt><label for="taddress">対象者の住所（市区町村以下）</label></dt>
-        <!-- ▼住所入力フィールド(都道府県以降の住所) -->
-      <dd><input type="text" name="taddress" id="taddress" ></dd>
-      <dt><label for="rtype">相談の種類</label></dt>
-      <dd>
-        <ul>
-          <li><input type="radio" name="rtype" value="介護保険認定申請">介護保険認定申請</li>
-          <li><input type="radio" name="rtype" value="健康・医療">健康・医療</li>
-          <li><input type="radio" name="rtype" value="生活・暮らし全般">生活・暮らし全般</li>
-          <li><input type="radio" name="rtype" value="権利擁護・虐待">権利擁護・虐待</li>
-          <li><input type="radio" name="rtype" value="家族・介護者支援">家族・介護者支援</li>
-        </ul>
-      </dd>
-      <dt><label for="contact">希望する応対</label></dt>
-      <dd>
-        <ul>
-          <li><input type="radio" name="contact" value="メール返信">メール返信</li>
-          <li><input type="radio" name="contact" value="面談（zoom）">面談（オンライン）</li>
-          <li><input type="radio" name="contact" value="面談（電話）">面談（電話）</li>
-          <li><input type="radio" name="contact" value="面談（対面）">面談（対面）</li>
-        </ul>
-      </dd>
-      <dt><label for="detail">相談の内容</label></dt>
-      <dd><textarea name="detail" id="detail" cols="30" rows="10">相談の内容</textarea></dd>
-    </dl>
-    <input type="submit" value="送信">
-  </form>
+  <header>
+    <div class="pagetitle">
+      <p>新宿区高齢者総合相談センター</p>
+    </div> 
+    <div class="pagetitle">
+      <p>ご相談フォーム</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section">
+      <form action="confirm.php" method="post">
+        <div class="section_title"><p>相談者</p></div>
+        <dl class="dlTable">
+          <dt><label for="cname">氏名</label></dt>
+          <dd><input type="text" name="cname" id="cname"></dd>
+          <dt><label for="cage">年齢</label></dt>
+          <dd><input type="text" name="cage" id="cage"></dd>
+          <dt><label for="ctel">電話番号</label></dt>
+          <dd><input type="text" name="ctel" id="ctel"></dd>
+          <dt><label for="cmail">メールアドレス</label></dt>
+          <dd><input type="text" name="cmail" id="cmail"></dd>
+          <dt><label for="cway" id="cway">希望する連絡手段</label></dt>
+          <dd>
+            <ul>
+              <li><input type="radio" name="cway" value="電話">電話</li>
+              <li><input type="radio" name="cway" value="メール">メール</li>
+            </ul>
+          </dd>
+          <dt><label for="target" id="target">支援対象</label></dt>
+          <dd>
+            <ul>
+              <li><input type="radio" name="target" value="本人" id ="honnin" onclick="check(cname.value,cage.value)">本人</li>
+              <li><input type="radio" name="target" value="家族・近親者">家族・近親者</li>
+              <li><input type="radio" name="target" value="友人・近所">友人・近所</li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="section_title"><p>対象者</p></div>
+        <dl class="dlTable">
+          <dt><label for="tname">対象者のお名前</label></dt>
+          <dd><input type="text" name="tname" id="tname" ></dd>
+          <dt><label for="tage">対象者の年齢</label></dt>
+          <dd><input type="text" name="tage" id="tage"></dd>
+          <dt><label for="tsex">対象者の性別</label></dt>
+          <dd>
+            <ul>
+            <li><input type="radio" name="tsex" value="女性">女性</li>
+            <li><input type="radio" name="tsex" value="男性">男性</li></dd>
+          <dt><label for="tpcode">対象者の住所（郵便番号）</label></dt>
+          <!-- <dd><input type="text" name="tpcode" id="tpcode"></dd> -->
+          <!-- ▼郵便番号入力フィールド(7桁) -->
+          <dd><input type="text" name="tpcode" ></dd>
+          <!-- ▼住所入力フィールド(都道府県) -->
+          <!-- <input type="text" name="pref01" size="20"> --> 
+          <dt><label for="taddress">対象者の住所（市区町村以下）</label></dt>
+            <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+          <dd><input type="text" name="taddress" id="taddress" ></dd>
+        </dl>
+        <div class="section_title"><p>相談</p></div>
+        <dl class="dlTable">
+          <dt><label for="rtype">相談の種類</label></dt>
+          <dd>
+            <ul>
+              <li><input type="radio" name="rtype" value="介護保険認定申請">介護保険認定申請</li>
+              <li><input type="radio" name="rtype" value="健康・医療">健康・医療</li>
+              <li><input type="radio" name="rtype" value="生活・暮らし全般">生活・暮らし全般</li>
+              <li><input type="radio" name="rtype" value="権利擁護・虐待">権利擁護・虐待</li>
+              <li><input type="radio" name="rtype" value="家族・介護者支援">家族・介護者支援</li>
+            </ul>
+          </dd>
+          <dt><label for="contact">希望する応対</label></dt>
+          <dd>
+            <ul>
+              <li><input type="radio" name="contact" value="メール返信">メール返信</li>
+              <li><input type="radio" name="contact" value="面談（zoom）">面談（オンライン）</li>
+              <li><input type="radio" name="contact" value="面談（電話）">面談（電話）</li>
+              <li><input type="radio" name="contact" value="面談（対面）">面談（対面）</li>
+            </ul>
+          </dd>
+          <dt><label for="detail">相談の詳細</label></dt>
+          <dd><textarea name="detail" id="detail" cols="30" rows="10">相談の詳細</textarea></dd>
+        </dl>
+        
+        <input type="submit" value="送信">
+      </form>
+    </div>
+  </main>
   <script>
     function check(browser1,browser2){
       document.getElementById("tname").value=browser1;

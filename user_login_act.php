@@ -1,4 +1,7 @@
 <?php
+//PHPエラーを非表示にする
+ini_set('display_errors', 0);
+
 //最初にSESSIONを開始！！ココ大事！！
 session_start();
 
@@ -28,18 +31,21 @@ $val = $stmt->fetch();  //1レコードだけ取得する方法
 
 //5.該当１レコードがあればSESSIONに値を代入
 //入力したPasswordと暗号化されたPasswordを比較！[戻り値：true,false]
+
 $pw = password_verify($lpw, $val["lpw"]);
 if( $pw ){ 
   //Login成功時
   $_SESSION["chk_ssid"]  = session_id();
   $_SESSION["kanri_flg"]     = $val['kanri_flg'];
   $_SESSION["uname"]     = $val['uname'];
+  $_SESSION["role"]     = $val['role'];
   //pwは絶対預けない
   //Login成功時（リダイレクト）
   redirect("list.php");
 }else{
   // //Login失敗時(Logoutを経由：リダイレクト)
   // redirect("user_login.html");
+  
   print'ログインエラーです<br/?>';
   print'<a href="./user_login.html">ログイン画面へ</a>';
 }

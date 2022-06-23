@@ -14,7 +14,7 @@ $pdo = db_conn();
 sschk();
   
 // (3) SQL作成
-$sql = 'SELECT * FROM contact INNER JOIN pcodelink on tpcode = pcode WHERE id= :id';//WHERE contact.id=idによりid変数を指定
+$sql = 'SELECT * FROM contact INNER JOIN pcodelink on tpcode = pcode INNER JOIN support on id = ct_id WHERE id= :id';//WHERE contact.id=idによりid変数を指定
 $stmt = $pdo -> prepare($sql);
 
 // (4) 登録するデータをセット
@@ -78,7 +78,7 @@ $pdo = null;
         <div class="request">
           <div class="index flex">
             <p>ID：<?php echo h($r['id']); ?></p>
-            <p>送信日時：<?php echo h($r['cdate']); ?></p>         
+            <p>送信日時:<?php echo h($r['cdate']); ?></p>         
           </div>
           <dl class="section">
             <div class="section_label">
@@ -131,12 +131,34 @@ $pdo = null;
               <dt><label class="detail tlabel"><p>相談の内容</p></label></dt>
               <dd class="textarea"><p><?php echo h($r['detail']); ?></p></dd>
           </dl>
-          <div class="out right">
+          <!-- <div class="out right">
             <i class="fa-solid fa-handshake-simple" style="font-size:24px; color:#DB1F48"></i>
             <div class="mask">
-            <a href=support.php?id=<?php echo $r['id'] ;?>><div class="caption">対応する</div></a>
+              <a href="detail_edit.php"><div class="caption">対応する</div></a>
             </div>
+          </div> -->
+        </div>
+
+        <div class="support">
+          <div class="index flex">
+            <p>#</p>
+            <p>登録日時:<?php echo h($r['sdate']); ?></p>         
           </div>
+          <dl class="section">
+            <div class="section_label">
+              <i class="fa-solid fa-people-roof" style="font-size:24px; color:#DB1F48;"></i><p>支援対応</p>
+            </div>
+            <div class="flex">
+              <dt><label class="area label"><p>担当地域センター</p></label></dt>
+              <dd class="data"><p><?php echo h($r['ccode']);?>
+              <dt><label class="supporter label"><p>担当者</p></label></dt>
+              <dd class="data"><p><?php echo h($r['supporter']); ?></p></dd>
+              <dt><label class="supporter label"><p>専門職種</p></label></dt>
+              <dd class="data"><p><?php echo h($r['role']); ?></p></dd>
+            </div>
+              <dt><label class="detail tlabel"><p>対応内容</p></label></dt>
+              <dd class="textarea"><p><?php echo h($r['support']); ?></p></dd>        
+          </dl> 
         </div>
       </div>
     </div>

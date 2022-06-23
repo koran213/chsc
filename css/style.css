@@ -1,10 +1,102 @@
-h1 {
-  font-size: 20px;
+header {
+  width: 100%;
+  height:40px;
+  display: flex;
+  /* position: fixed; */
+  padding: 5px;
+  margin: 0;
 }
 
+.pagetitle {
+  width: 400px;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pagetitle p {
+  font-size: 20px;
+  padding: 0;
+}
+
+.section {
+  height: auto;
+  background: #E5DDC8;
+  margin-bottom: 10px;
+  padding: 10px 20px 20px;
+}
+
+h1 {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0px;
+  padding: 15px 0 10px;
+  border-bottom: solid 2px #01949A;
+}
+
+p {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 0 0;
+}
 
 .attention {
   color: red;
+}
+
+h2 {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0px;
+  padding: 10px 0 10px;
+}
+
+form {
+  height: 40px;
+  line-height: 40px;
+}
+.inputbox {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  /* padding: 3px; */
+  line-height: 40px;
+}
+
+.button {
+  width: 60px;
+  height: 38px;
+  /* padding: 3px; */
+  line-height: 32px;
+  font-size: 18px;
+  color: white;
+  background: #004369;
+  border: none;
+}
+
+.center {
+  display: flex;
+  line-height: auto;
+}
+
+.next {
+  width: 200px;
+  height: 38px;
+  line-height: 32px;
+  margin: 50px 80px 0 0 ;
+  font-size: 18px;
+  color: white;
+  background: #004369;
+  border: none;
+}
+
+.exit {
+  display: flex;
 }
 
 ul {
@@ -14,33 +106,32 @@ ul {
 dt,dd {
   margin: 0; /* ブラウザの初期値をクリア */
   padding: 0; /* ブラウザの初期値をクリア */
+
 }
 .dlTable {
-  width: 900px; /* テーブルの横幅を500pxに指定 */
+  width: 800px; /* テーブルの横幅を500pxに指定 */
   border-top: 1px solid #ddd; /* テーブルの上の線 */
   border-left: 1px solid #ddd; /* テーブルの左の線 */
   display: flex; /* 子要素のdtとddを横並びにする */
   flex-wrap: wrap; /* 1つのdtとddで1行になるよう改行させる */
+  background-color: #E5DDC8;
 }
 .dlTable dt,
 .dlTable dd {
   border-bottom: 1px solid #ddd; /* 各セルの下の線。テーブルの下の線も補える。 */
   border-right: 1px solid #ddd; /* 各セルの右の線。テーブルの右の線も補える。 */
   box-sizing: border-box; /* widthの計算を楽にするため */
-  padding: 15px 30px; /* 各セルに余白を取る */
+  padding: 5px 30px; /* 各セルに余白を取る */
 }
 .dlTable dt {
   font-size: 16px; /* フォントサイズを16pxに指定 */
-  width: 200px; /* dt（見出し項目）の横幅を200pxに指定 */ 
+  width: 300px; /* dt（見出し項目）の横幅を200pxに指定 */ 
 }
 .dlTable dd {
   width: calc(100% - 300px); /* テーブル幅からdtを引いた分の横幅を指定。 */
 }
 
-.text1 {
-  width: 400px;
-  height: 36px;
-}
+
 
 /* FOR smartphone landscape
 ***************************************************************************/
@@ -61,4 +152,11 @@ dt,dd {
       border-bottom: none; /* 下の線を消す（ddの下の線が残る） */
       padding-bottom: 0; /*ddとの距離を近づけるため、0にする*/
   }
+} 
+
+label {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 0 0;
 }

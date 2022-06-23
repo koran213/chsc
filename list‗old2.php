@@ -14,26 +14,10 @@ $stmt   = $pdo->prepare("SELECT * FROM contact"); //SQLをセット
 $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$statusに代入
 	
 //3. レコード件数取得
-$row_count = $stmt->rowCount();
-while($row = $stmt->fetch()){
-  $rows[] = $row;
-}
-
-if (isset($ct_id['ct_id'])) {
-// if (isset($ct_id)) {
-  $sql = "SELECT * FROM support on id = ct_id = $ct_id";
-  $stmt = $strJavaScript = 
-  '<script>
-      $(function(){
-          document.getElementById("status").innerHTML = "<p>済</p>"
-        }
-      });
-  </script>';
-  $status = $stmt->execute();
-}else {
-  $search ="";
-  $stmt = [];
-}
+	$row_count = $stmt->rowCount();
+	while($row = $stmt->fetch()){
+		$rows[] = $row;
+	}
 
 //4. データベース接続切断
 	$pdo = null;
@@ -81,18 +65,7 @@ if (isset($ct_id['ct_id'])) {
       <div class="list">
     
         <table border='0'>
-          <tr>
-            <td class="index"><p>id</p></td>
-            <td class="index"><p>送信日時</p></td>
-            <td class="index"><p>対応</p></td>
-            <td class="index"><p>相談の種類</p></td>
-            <td class="index"><p>相談者氏名</p></td>
-            <td class="index"><p>相談者年齢</p></td>
-            <td class="index"><p>相談の対象</p></td>
-            <td class="index"><p>対象者氏名</p></td>
-            <td class="index"><p>対象者年齢</p></td>
-            <td class="index"><p>対象者性別</p></td>
-            <td class="index"><p>編集</p></td></tr>
+          <tr><td class="index">id</td><td class="index">送信日時</td><td class="index">相談の種類</td><td class="index">相談者氏名</td><td class="index">相談者年齢</td><td class="index">相談の対象</td><td class="index">対象者氏名</td><td class="index">対象者年齢</td><td class="index">対象者性別</td><td class="index">編集</td><td class="index">削除</td></tr>
 
           <?php 
           foreach($rows as $r){
@@ -101,16 +74,16 @@ if (isset($ct_id['ct_id'])) {
           <td class="link">  
               <a href=detail.php?id=<?php echo $r['id'] ;?>><?php echo $r['id'] ;?></a>
               </td>
-              <td><?php echo h($r['cdate']); ?></td>
-              <td><p id="status">新規</p></td>  
-              <td><p><?php echo h($r['ctype']); ?></p></td> 
-              <td><p><?php echo h($r['cname']); ?></p></td> 
-              <td><p><?php echo h($r['cage']); ?></p></td> 
-              <td><p><?php echo h($r['target']); ?></p></td> 
-              <td><p><?php echo h($r['tname']); ?></p></td> 
-              <td><p><?php echo h($r['tage']); ?></p></td> 
-              <td><p><?php echo h($r['tsex']); ?></p></td> 
-              <td><p><a href=detail.php?id=<?php echo $r['id'] ;?>>編集</a></p></td> 
+              <td><?php echo h($r['cdate']); ?></td> 
+              <td><?php echo h($r['ctype']); ?></td> 
+              <td><?php echo h($r['cname']); ?></td> 
+              <td><?php echo h($r['cage']); ?></td> 
+              <td><?php echo h($r['target']); ?></td> 
+              <td><?php echo h($r['tname']); ?></td> 
+              <td><?php echo h($r['tage']); ?></td> 
+              <td><?php echo h($r['tsex']); ?></td> 
+              <td><a href=detail.php?id=<?php echo $r['id'] ;?>>編集</a></td> 
+              <td><a href=delete.php?id=<?php echo $r['id'] ;?>>削除</a></td> 
             </tr> 
             <?php 
           } 
@@ -121,15 +94,13 @@ if (isset($ct_id['ct_id'])) {
   </div>
 
   <?php
-    if($_SESSION["kanri_flg"]=="2"){
-      print'<p><a href="./user_list.php">ユーザー管理画面</a></p>';
-      print'<p><a href="./center_list.php">センター管理画面</a></p>';
-    }elseif($_SESSION["kanri_flg"]=="1"){
-      exit();
+    if($_SESSION["kanri_flg"]=="1"){
       print'<a href="./user_list.php">ユーザー管理画面</a>';
-    }else{
+
+        // exit();
+      }else{
       exit();
-    }
+      }
   ?>
     </body>
 </html>

@@ -1,0 +1,140 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+p {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height:40px;
+  display: flex;
+  /* position: fixed; */
+  padding: 5px;
+  margin: 0;
+}
+
+.pagetitle {
+  width: 400px;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pagetitle p {
+  font-size: 20px;
+  padding: 0;
+}
+
+.section {
+  height: auto;
+  background: #E5DDC8;
+  margin-bottom: 10px;
+  padding: 10px 20px 20px;
+}
+
+.request {
+  width: 1100px;
+  height: auto;
+  margin: 0 auto 10px;
+  padding: 10px;
+  }
+
+h1 {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0px;
+  margin-bottom: 20px;
+  padding: 15px 0 10px;
+  border-bottom: solid 2px #01949A;
+}
+
+.section_label {
+  width: 1080px;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  background-color: #004369;
+  color: white;
+  margin: 0;  
+}
+
+dt,dd {
+  margin: 0; /* ブラウザの初期値をクリア */
+  padding: 0; /* ブラウザの初期値をクリア */
+  height: 50px;
+}
+.dlTable {
+  width: 1100px; /* テーブルの横幅を500pxに指定 */
+  border-top: 1px solid gray; /* テーブルの上の線 */
+  border-left: 1px solid gray; /* テーブルの左の線 */
+  display: flex; /* 子要素のdtとddを横並びにする */
+  flex-wrap: wrap; /* 1つのdtとddで1行になるよう改行させる */
+  margin-top: 0;
+}
+.dlTable dt,
+.dlTable dd {
+  border-bottom: 1px solid gray; /* 各セルの下の線。テーブルの下の線も補える。 */
+  border-right: 1px solid gray; /* 各セルの右の線。テーブルの右の線も補える。 */
+  box-sizing: border-box; /* widthの計算を楽にするため */
+  padding: 5px 30px; /* 各セルに余白を取る */
+  line-height: 40px;
+}
+.dlTable dt {
+  font-size: 16px; /* フォントサイズを16pxに指定 */
+  width: 300px; /* dt（見出し項目）の横幅を200pxに指定 */
+}
+.dlTable dd {
+  width: calc(100% - 300px); /* テーブル幅からdtを引いた分の横幅を指定。 */
+}
+
+.input_text {
+  width: 300px;
+  height: 30px;
+  line-height: 45px;
+  font-size: 18px;
+  font-family: 'Kosugi Maru', sans-serif;
+
+}
+
+.row_high {
+  height: 100px;
+}
+
+.row_high_2 {
+  height: 200px;
+}
+
+.textarea {
+  width: 700px;
+  height: 180px;
+  font-size: 18px;
+  line-height: 1.2em;
+}
+
+.next {
+  width: 200px;
+  height: 38px;
+  line-height: 32px;
+  margin: 50px auto;
+  font-size: 18px;
+  color: white;
+  background: #004369;
+  border: none;
+  /* text-align: center; */
+}

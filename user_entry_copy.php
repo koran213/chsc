@@ -10,10 +10,7 @@ $pdo = db_conn();
 sschk();
 
 //２．データ登録SQL作成
-$stmt   = $pdo->prepare("SELECT cc FROM center");
-$status = $stmt->execute(); //SQLを実行→エラーの場合falseを$statusに代入
-
-$center = $stmt->fetch(PDO::FETCH_BOTH);
+$sql = 'select * from center';
 
 //3. データベース接続切断
 $pdo = null;
@@ -52,21 +49,23 @@ $pdo = null;
       </dd>
       <dt><label for="center">センター</label></dt>
       <dd>
-        <select name="center" id="center">
-          <option value="<?php echo ($row['cc']); ?>"></option>
+        <!-- method one -->
+        <select name="center" >
+        <?php 
+        while($row = mysql_fetch_array($result)){
+          echo "<option value ='".$row['cc']."'>'".$row['cc']."'</option>";
+        }
+        ?>
         </select>
-      <!-- <?php print $select; ?>  -->
-        </dd>
+</dd>
 
       <dt><label for="kanri_flg">ユーザー種別</label></dt>
       <dd><input type="text" name="kanri_flg" id="kanri_flg"></dd>
       <dt><label for="life_flg">在職種別</label></dt>
       <dd><input type="text" name="life_flg" id="life_flg"></dd>
-    </dl>https://stackoverflow.com/questions/18953688/select-option-menu-read-from-database-and-use-its-values
+    </dl>
     <input type="submit" value="送信">
   </form>
-
-  <?php print_r($center); ?>
 
 
  

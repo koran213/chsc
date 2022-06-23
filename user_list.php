@@ -39,14 +39,14 @@ $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$status�
   <a href="logout.php">ログアウト</a><br/>
  
   <table border='0'>
-    <tr><td class="index">id</td><td class="index">氏名</td><td class="index">ユーザーID</td><td class="index">専門職種</td><td class="index">所属センター</td><td class="index">管理フラグ</td><td class="index">在職フラグ</td><td class="index">編集</td><td class="index">削除</td></tr>
+    <tr><td class="index">id</td><td class="index">氏名</td><td class="index">利用者ID</td><td class="index">専門職種</td><td class="index">所属センター</td><td class="index">管理フラグ</td><td class="index">在職フラグ</td><td class="index">編集</td><td class="index">削除</td></tr>
 
     <?php 
     foreach($rows as $row){
     ?> 
     
     <td class="link">  
-        <a href=user_edit.php?id=<?php echo $row['id'] ;?>><?php echo $row['id'] ;?></a>
+        <a href=user_edit.php?uid=<?php echo $row['uid'] ;?>><?php echo $row['uid'] ;?></a>
         </td>
         
         <td><?php echo h($row['uname']); ?></td> 
@@ -55,8 +55,8 @@ $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$status�
         <td><?php echo h($row['center']); ?></td> 
         <td><?php echo h($row['kanri_flg']); ?></td> 
         <td><?php echo h($row['life_flg']); ?></td> 
-        <td><a href=user_edit.php?id=<?php echo $row['id'] ;?>>編集</a></td> 
-        <td><a href=user_delete.php?id=<?php echo $row['id'] ;?>>削除</a></td> 
+        <td><a href=user_edit.php?uid=<?php echo $row['uid'] ;?>>編集</a></td> 
+        <td><a href=user_delete.php?uid=<?php echo $row['uid'] ;?>>削除</a></td> 
       </tr> 
       <?php 
     } 

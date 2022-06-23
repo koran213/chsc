@@ -6,22 +6,24 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
 }
 
 //1. POSTデータ取得
-$id       = $_POST["id"];
-$center   = $_POST["center"];
-$address  = $_POST["address"];
-$tel      = $_POST["tel"];
-$email    = $_POST["email"]; 
-$url      = $_POST["url"]; 
+$center_id = $_POST["center_id"];
+$cc        = $_POST["cc"];
+$center    = $_POST["center"];
+$address   = $_POST["address"];
+$tel       = $_POST["tel"];
+$email     = $_POST["email"]; 
+$url       = $_POST["url"]; 
 
 //2. DB接続
 include("./funcs.php");
 $pdo = db_conn();
 
 //３．データ登録SQL作成
-$sql = "UPDATE center SET center=:center, address=:address, tel=:tel, email=:email, url=:url WHERE id=:id";
+$sql = "UPDATE center SET cc=:cc, center=:center, address=:address, tel=:tel, email=:email, url=:url WHERE center_id=:center_id";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);  
-$stmt->bindValue(':center', $center, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':center_id', $center_id, PDO::PARAM_INT);  
+$stmt->bindValue(':cc', $cc, PDO::PARAM_STR); 
+$stmt->bindValue(':center', $center, PDO::PARAM_STR); 
 $stmt->bindValue(':address', $address, PDO::PARAM_STR);  
 $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);  
 $stmt->bindValue(':email', $email, PDO::PARAM_STR);  

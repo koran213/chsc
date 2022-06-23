@@ -33,27 +33,37 @@ $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$status�
   <a href="center_entry.html">新規登録</a>
  
   <table border='0'>
-    <tr><td class="index">id</td><td class="index">センター名</td><td class="index">住所</td><td class="index">電話番号</td><td class="index">メールアドレス</td><td class="index">URL</td><td class="index">編集</td><td class="index">削除</td></tr>
+    <tr>
+      <td class="index">id</td>
+      <td class="index">略称</td>
+      <td class="index">センター名</td>
+      <!-- <td class="index">住所</td> -->
+      <td class="index">電話番号</td>
+      <td class="index">メールアドレス</td>
+      <!-- <td class="index">URL</td> -->
+      <td class="index">編集</td>
+      <td class="index">削除</td></tr>
 
     <?php 
-    foreach($rows as $row){
+     foreach($rows as $r){
     ?> 
     
     <td class="link">  
-        <a href=detail.php?id=<?php echo $row['id'] ;?>><?php echo $row['id'] ;?></a>
+        <a href=center_edit.php?center_id=<?php echo $r['center_id'] ;?>><?php echo $r['center_id'] ;?></a>
         </td>
-        
-        <td><?php h($row['center']); ?></td> 
-        <td><?php h($row['address']); ?></td> 
-        <td><?php h($row['tel']); ?></td> 
-        <td><?php h($row['email']); ?></td> 
-        <td><?php h($row['url']); ?></td> 
-        <td><a href=center_edit.php?id=<?php echo $row['id'] ;?>>編集</a></td> 
-        <td><a href=center_delete.php?id=<?php echo $row['id'] ;?>>削除</a></td> 
+        <td><?php echo h($r['cc']); ?></td> 
+        <td><?php echo h($r['center']); ?></td> 
+        <!-- <td><?php echo h($r['address']); ?></td>  -->
+        <td><?php echo h($r['tel']); ?></td> 
+        <td><?php echo h($r['email']); ?></td> 
+        <!-- <td><?php echo h($r['url']); ?></td>  -->
+        <td><a href=center_edit.php?center_id=<?php echo $r['center_id'] ;?>>編集</a></td> 
+        <td><a href=center_delete.php?center_id=<?php echo $r['center_id'] ;?>>削除</a></td> 
       </tr> 
       <?php 
     } 
     ?>
+    <a href="./list.php">対応一覧へ</a>
   </table>
  </body>
 </html>

@@ -8,22 +8,24 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
 include("./funcs.php");
 $pdo = db_conn();
 
-$uname = $_POST["uname"];
-$lid = $_POST["lid"];
-$lpw = $_POST["lpw"];
-$kanri = $_POST["kanri"];
-$center = $_POST["center"];
-$id    = $_POST["id"];
+$uname      = $_POST["uname"];
+$lid        = $_POST["lid"];
+$role       = $_POST["role"];
+$center     = $_POST["center"];
+$kanri_flg  = $_POST["kanri_flg"];
+$life_flg   = $_POST["life_flg"];
+$uid        = $_POST["uid"];
 
 //データ登録SQL作成
-$sql = "UPDATE user SET uname=:uname, lid=:lid, lpw=:lpw, kanri=:kanri, center=:center WHERE id=:id";
+$sql = "UPDATE user SET uname=:uname, lid=:lid, role=:role, center=:center, kanri_flg=:kanri_flg, life_flg=:life_flg WHERE uid=:uid";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);  
+$stmt->bindValue(':uid', $uid, PDO::PARAM_INT);  
 $stmt->bindValue(':uname', $uname, PDO::PARAM_STR);  
 $stmt->bindValue(':lid', $lid, PDO::PARAM_STR);  
-$stmt->bindValue(':lpw', $lpw, PDO::PARAM_STR);  
-$stmt->bindValue(':kanri', $kanri, PDO::PARAM_INT);  
-$stmt->bindValue(':center', $center, PDO::PARAM_STR);  
+$stmt->bindValue(':role', $role, PDO::PARAM_STR);  
+$stmt->bindValue(':center', $center, PDO::PARAM_STR);
+$stmt->bindValue(':kanri_flg', $kanri_flg, PDO::PARAM_INT);   
+$stmt->bindValue(':life_flg', $life_flg, PDO::PARAM_INT);   
 $status = $stmt->execute(); //$statusにはtrue,falseが返る
 
 //４．データ登録処理後
