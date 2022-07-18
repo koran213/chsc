@@ -12,7 +12,7 @@ $pdo = db_conn();
 
 //ログイン確認
 sschk();
-  
+
 // (3) SQL作成
 $sql = 'SELECT * FROM contact INNER JOIN pcodelink on tpcode = pcode WHERE id= :id';//WHERE contact.id=idによりid変数を指定
 $stmt = $pdo -> prepare($sql);
@@ -48,7 +48,7 @@ $pdo = null;
 
   <body>
     <div class="wrap">
-    
+
       <div class="header">
         <div class="pagetitle">
           <i class="fas fa-file-alt fa-2x" style="color:#DB1F48"></i>
@@ -64,8 +64,8 @@ $pdo = null;
           <div class="login_user">
             <i class="fas fa-user-circle centering" style="font-size:24px; color:#01949A;"></i><p>&nbsp;<?=$_SESSION["uname"]?></p>
           </div>
-          <div class="out">        
-            <i class="fas fa-sign-out-alt centering" style="font-size:24px; color:#01949A;"></i>      
+          <div class="out">
+            <i class="fas fa-sign-out-alt centering" style="font-size:24px; color:#01949A;"></i>
             <div class="mask">
               <a href="logout.php"><div class="caption">ログアウト</div></a>
             </div>
@@ -73,17 +73,17 @@ $pdo = null;
         </div>
       </div>
 
-      <div class="main">  
+      <div class="main">
 
         <div class="request">
           <div class="index flex">
             <p>ID：<?php echo h($r['id']); ?></p>
-            <p>送信日時：<?php echo h($r['cdate']); ?></p>         
+            <p>送信日時：<?php echo h($r['cdate']); ?></p>
           </div>
           <dl class="section">
             <div class="section_label">
               <i class="fa-solid fa-hand-holding-heart" style="font-size:24px; color:#DB1F48;"></i><p>相談者</p>
-            </div>  
+            </div>
             <div class="flex">
               <dt><label class="cname label"><p>氏名</p></label></dt>
               <dd class="data"><p><?php echo h($r['cname']); ?></p></dd>
@@ -117,7 +117,7 @@ $pdo = null;
               <dt><label class="cmail label"><p>住所</p></label></dt>
               <dd class="data"><p><?php echo h($r['taddress']); ?></p></dd>
             </div>
-          </dl>  
+          </dl>
           <dl class="section">
             <div class="section_label">
               <i class="fa-solid fa-comment-dots" style="font-size:24px; color:#DB1F48;"></i><p>相談内容</p>

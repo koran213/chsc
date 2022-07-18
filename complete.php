@@ -1,49 +1,48 @@
 <?php
 // 直リンクされた場合search.phpにリダイレクト
-// if($_SERVER["REQUEST_METHOD"] != "POST"){
-// 	header("Location: search.php");
-// 	exit();
-// }
+if($_SERVER["REQUEST_METHOD"] != "POST"){
+	header("Location: search.php");
+	exit();
+}
 
 //1. POSTデータ取得
-// include('post_data.php');
+include('post_data.php');
 
 //2. DB接続
-// include("./funcs.php");
-// $pdo = db_conn();
+include("./funcs.php");
+$pdo = db_conn();
 
 //３．データ登録SQL作成
-// $sql = "INSERT INTO contact (cname,cage,ctel,cmail,cway,target,tname,tage,tsex,tpcode,taddress,ctype,contact,detail,cdate)
-// VALUES(:cname, :cage, :ctel, :cmail, :cway, :target, :tname, :tage, :tsex, :tpcode, :taddress, :ctype, :contact, :detail, sysdate());";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':cname', $cname, PDO::PARAM_STR);  //Inrtypeteger（数値の場合 PDO::PARAM_INT)
-// $stmt->bindValue(':cage', $cage, PDO::PARAM_INT);  
-// $stmt->bindValue(':ctel', $ctel, PDO::PARAM_STR);  
-// $stmt->bindValue(':cmail', $cmail, PDO::PARAM_STR);  
-// $stmt->bindValue(':cway', $cway, PDO::PARAM_STR);  
-// $stmt->bindValue(':target', $target, PDO::PARAM_STR);  
-// $stmt->bindValue(':tname', $tname, PDO::PARAM_STR);  
-// $stmt->bindValue(':tage', $tage, PDO::PARAM_INT);  
-// $stmt->bindValue(':tsex', $tsex, PDO::PARAM_STR);  
-// $stmt->bindValue(':tpcode', $tpcode, PDO::PARAM_INT);  
-// $stmt->bindValue(':taddress', $taddress, PDO::PARAM_STR);  
-// $stmt->bindValue(':ctype', $ctype, PDO::PARAM_STR);  
-// $stmt->bindValue(':contact', $contact, PDO::PARAM_STR);  
-// $stmt->bindValue(':detail', $detail, PDO::PARAM_STR);  
-// $status = $stmt->execute(); //$statusにはtrue,falseが返る
+$sql = "INSERT INTO contact (cname,cage,ctel,cmail,cway,target,tname,tage,tsex,tpcode,taddress,ctype,contact,detail,cdate)
+VALUES(:cname, :cage, :ctel, :cmail, :cway, :target, :tname, :tage, :tsex, :tpcode, :taddress, :ctype, :contact, :detail, sysdate());";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':cname', $cname, PDO::PARAM_STR);  //Inrtypeteger（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':cage', $cage, PDO::PARAM_INT);  
+$stmt->bindValue(':ctel', $ctel, PDO::PARAM_STR);  
+$stmt->bindValue(':cmail', $cmail, PDO::PARAM_STR);  
+$stmt->bindValue(':cway', $cway, PDO::PARAM_STR);  
+$stmt->bindValue(':target', $target, PDO::PARAM_STR);  
+$stmt->bindValue(':tname', $tname, PDO::PARAM_STR);  
+$stmt->bindValue(':tage', $tage, PDO::PARAM_INT);  
+$stmt->bindValue(':tsex', $tsex, PDO::PARAM_STR);  
+$stmt->bindValue(':tpcode', $tpcode, PDO::PARAM_INT);  
+$stmt->bindValue(':taddress', $taddress, PDO::PARAM_STR);  
+$stmt->bindValue(':ctype', $ctype, PDO::PARAM_STR);  
+$stmt->bindValue(':contact', $contact, PDO::PARAM_STR);  
+$stmt->bindValue(':detail', $detail, PDO::PARAM_STR);  
+$status = $stmt->execute(); //$statusにはtrue,falseが返る
 
 //４．データ登録処理後
-// if($status==false){
+if($status==false){
   //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
-//   $error = $stmt->errorInfo();
-//   exit("SQL_error:".$error[2]);
-// }else{
-  //５．index.phpへリダイレクト
+  $error = $stmt->errorInfo();
+  exit("SQL_error:".$error[2]);
+}else{
+  //５．メール送信
+  //６．index.phpへリダイレクト
   // header("Location: index.html");
   // exit();
-  //５．メール送信
-
-// }
+}
 // ?>
 
 <!DOCTYPE html>

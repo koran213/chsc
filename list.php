@@ -12,7 +12,7 @@ sschk();
 //２．データ登録SQL作成
 $stmt   = $pdo->prepare("SELECT * FROM contact"); //SQLをセット
 $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$statusに代入
-	
+
 //3. レコード件数取得
 $row_count = $stmt->rowCount();
 while($row = $stmt->fetch()){
@@ -22,7 +22,7 @@ while($row = $stmt->fetch()){
 if (isset($ct_id['ct_id'])) {
 // if (isset($ct_id)) {
   $sql = "SELECT * FROM support on id = ct_id = $ct_id";
-  $stmt = $strJavaScript = 
+  // $stmt = $strJavaScript =
   '<script>
       $(function(){
           document.getElementById("status").innerHTML = "<p>済</p>"
@@ -39,7 +39,7 @@ if (isset($ct_id['ct_id'])) {
 	$pdo = null;
 
 ?>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +56,7 @@ if (isset($ct_id['ct_id'])) {
 
 <body>
   <div class="wrap">
-    
+
     <div class="header">
       <div class="pagetitle">
         <i class="fas fa-file-alt fa-2x" style="color:#DB1F48"></i>
@@ -64,14 +64,14 @@ if (isset($ct_id['ct_id'])) {
       </div>
       <div class="count"><p>レコード件数：<?php echo $row_count; ?></p></div>
       <div class="manage" style="width: 190px; display: flex;">
-        <div class="out">        
-          <i class="fa-solid fa-address-card centering" style="font-size:26px; color:#DB1F48;"></i>      
+        <div class="out">
+          <i class="fa-solid fa-address-card centering" style="font-size:26px; color:#DB1F48;"></i>
           <div class="mask">
             <a href="user_list.php"><div class="caption">利用者管理へ</div></a>
           </div>
         </div>
-        <div class="out">        
-          <i class="fa-solid fa-building centering" style="font-size:26px; color:#DB1F48;"></i>      
+        <div class="out">
+          <i class="fa-solid fa-building centering" style="font-size:26px; color:#DB1F48;"></i>
           <div class="mask">
             <a href="center_list.php"><div class="caption">センター管理</div></a>
           </div>
@@ -81,8 +81,8 @@ if (isset($ct_id['ct_id'])) {
         <div class="login_user">
           <i class="fas fa-user-circle centering" style="font-size:24px; color:#01949A;"></i><p>&nbsp;<?=$_SESSION["uname"]?></p>
         </div>
-        <div class="out">        
-          <i class="fas fa-sign-out-alt centering" style="font-size:24px; color:#01949A;"></i>      
+        <div class="out">
+          <i class="fas fa-sign-out-alt centering" style="font-size:24px; color:#01949A;"></i>
           <div class="mask">
             <a href="logout.php"><div class="caption">ログアウト</div></a>
           </div>
@@ -93,7 +93,7 @@ if (isset($ct_id['ct_id'])) {
     <div class="main">
 
       <div class="list">
-    
+
         <table border='0'>
           <tr>
             <td class="index"><p>id</p></td>
@@ -108,11 +108,11 @@ if (isset($ct_id['ct_id'])) {
             <td class="index"><p>対象者性別</p></td>
             <td class="index"><p>編集</p></td></tr>
 
-          <?php 
+          <?php
           foreach($rows as $r){
-          ?> 
-          
-          <td class="link">  
+          ?>
+
+          <td class="link">
               <a href=detail.php?id=<?php echo $r['id'] ;?>><?php echo $r['id'] ;?></a>
               </td>
               <td><?php echo h($r['cdate']); ?></td>
