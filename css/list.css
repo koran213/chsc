@@ -33,7 +33,7 @@ p {
 }
 
 .login {
-  width: 190px;
+  width: 240px;
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -41,20 +41,13 @@ p {
   margin-left: auto;
 }
 
-.login p {
-  margin: 0;
-  line-height: 40px;
-  font-family: 'Kosugi Maru', sans-serif;
-}
-
 .login_user {
   display: flex;
   line-height: 40px;
-  font-size: 16px;
 }
 
 .out {
-	width:			110px;
+	width:			100px;
 	height:			40px;
 	overflow:		hidden;
 	position:		relative;	/* 相対位置指定 */
@@ -62,8 +55,8 @@ p {
   line-height: 40px;
 }
 .out .caption {
-  width:			110px;
-	font-size:		16px;
+  width:			100px;
+	font-size:		14px;
   height:			40px;
 	text-align: 		center;
 	/* padding-top:		80px; */
@@ -101,23 +94,25 @@ p {
 
 .main {
   width: 100%;
-  height: auto;
+  height: 100vh;
   background: #E5DDC8;
 }
 
 .list {
-  margin: 10px auto;
-  padding: 10px;
+  padding-top: 15px;
 }
 
 table {
   border-collapse: collapse;
+  margin: 0px auto;
+  padding-top: 15px;
 }
 
 table th, table td {
   border: 1px #004369 solid;
-  padding: 5px;
+  padding: 8px;
   margin: 0;
+  text-align: center;
   background: white;
 }
 

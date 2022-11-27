@@ -51,7 +51,7 @@ $pdo = null;
 
       <div class="header">
         <div class="pagetitle">
-          <i class="fas fa-file-alt fa-2x" style="color:#DB1F48"></i>
+        <a href="list.php"><i class="fas fa-file-alt fa-2x" style="color:#DB1F48"></i></a>
           <p style="font-size: 20px; margin:0; font-family: 'Kosugi Maru', sans-serif;line-height: 40px;">相談案件詳細</p>
         </div>
         <div class="out">
@@ -89,7 +89,7 @@ $pdo = null;
               <dd class="data"><p><?php echo h($r['cname']); ?></p></dd>
               <dt><label class="cage label"><p>年齢</p></label></dt>
               <dd class="data"><p><?php echo h($r['cage']); ?></p></dd>
-              <dt><label class="cmail label"><p>支援対象との間柄</p></label></dt>
+              <dt><label class="cmail label"><p>間柄</p></label></dt>
               <dd class="data"><p><?php echo h($r['target']); ?></p></dd>
               <dt><label class="target label"><p>電話番号</p></label></dt>
               <dd class="data"><p><?php echo h($r['ctel']); ?></p></dd>

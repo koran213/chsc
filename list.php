@@ -63,11 +63,11 @@ if (isset($ct_id['ct_id'])) {
         <p style="font-size: 20px; margin:0; font-family: 'Kosugi Maru', sans-serif;line-height: 40px;">相談案件一覧</p>
       </div>
       <div class="count"><p>レコード件数：<?php echo $row_count; ?></p></div>
-      <div class="manage" style="width: 190px; display: flex;">
+      <div class="manage" style="width: 240px; display: flex;">
         <div class="out">
           <i class="fa-solid fa-address-card centering" style="font-size:26px; color:#DB1F48;"></i>
           <div class="mask">
-            <a href="user_list.php"><div class="caption">利用者管理へ</div></a>
+            <a href="user_list.php"><div class="caption">利用者管理</div></a>
           </div>
         </div>
         <div class="out">
@@ -106,16 +106,16 @@ if (isset($ct_id['ct_id'])) {
             <td class="index"><p>対象者氏名</p></td>
             <td class="index"><p>対象者年齢</p></td>
             <td class="index"><p>対象者性別</p></td>
-            <td class="index"><p>編集</p></td></tr>
+            <td class="index"><p>詳細</p></td></tr>
 
           <?php
           foreach($rows as $r){
           ?>
 
           <td class="link">
-              <a href=detail.php?id=<?php echo $r['id'] ;?>><?php echo $r['id'] ;?></a>
+              <a href=detail.php?id=<?php echo $r['id'] ;?>><p><?php echo $r['id'] ;?></p></a>
               </td>
-              <td><?php echo h($r['cdate']); ?></td>
+              <td><p><?php echo h($r['cdate']); ?></p></td>
               <td><p id="status">新規</p></td>  
               <td><p><?php echo h($r['ctype']); ?></p></td> 
               <td><p><?php echo h($r['cname']); ?></p></td> 
@@ -135,15 +135,15 @@ if (isset($ct_id['ct_id'])) {
   </div>
 
   <?php
-    if($_SESSION["kanri_flg"]=="2"){
-      print'<p><a href="./user_list.php">ユーザー管理画面</a></p>';
-      print'<p><a href="./center_list.php">センター管理画面</a></p>';
-    }elseif($_SESSION["kanri_flg"]=="1"){
-      exit();
-      print'<a href="./user_list.php">ユーザー管理画面</a>';
-    }else{
-      exit();
-    }
+    // if($_SESSION["kanri_flg"]=="2"){
+    //   print'<p><a href="./user_list.php">ユーザー管理画面</a></p>';
+    //   print'<p><a href="./center_list.php">センター管理画面</a></p>';
+    // }elseif($_SESSION["kanri_flg"]=="1"){
+    //   exit();
+    //   print'<a href="./user_list.php">ユーザー管理画面</a>';
+    // }else{
+    //   exit();
+    // }
   ?>
     </body>
 </html>
