@@ -63,7 +63,8 @@ $status = $stmt->execute(); //SQLを実行→エラーの場合falseを$status�
       <?php 
     } 
     ?>
-    <a href="./list.php">対応一覧へ</a>
+
   </table>
+  <a href="./list.php">相談案件一覧へ</a>
  </body>
 </html>

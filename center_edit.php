@@ -43,7 +43,6 @@ if($status==false) {
       <dt><label for="tel">TEL</label></dt>
       <dd><input type="text" name="tel" id="tel" value="<?=$row["tel"]?>"></dd>
       <dt><label for="email">メールアドレス</label></dt>
-      <dt><label for="email">メールアドレス</label></dt>
       <dd><input type="text" name="email" id="email" value="<?=$row["email"]?>"></dd>
       <dt><label for="url">url</label></dt>
       <dd><input type="text" name="url" id="url" value="<?=$row["url"]?>"></dd>
@@ -51,7 +50,7 @@ if($status==false) {
     <!-- idを隠して送信 -->
     <input type="hidden" name="center_id" value="<?=$center_id?>">
     <!-- idを隠して送信 -->
-    <input type="submit" value="送信">
+    <input type="submit" value="更新">
     <a href="./center_list.php">戻る</a>
   </form>
 </body>
