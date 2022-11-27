@@ -21,6 +21,16 @@ if($status==false) {
 }else{
   $row = $stmt->fetch(); 
 }
+
+//4．centerテーブルからselect候補一覧取得
+$center = "";
+if ($stmt2 = $pdo -> query("SELECT * FROM center")) {
+    foreach ($stmt2 as $center_val) {
+        $center .= "<option value='". $center_val['cc'];
+        $center .= "'>". $center_val['cc']. "</option>";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +56,12 @@ if($status==false) {
       <dt><label for="role">専門職種</label></dt>
       <dd><input type="text" name="role" id="role" value="<?=$row["role"]?>"></dd>
       <dt><label for="center">センター</label></dt>
-      <dd><input type="text" name="center" id="center" value="<?=$row["center"]?>"></dd>
-      <dt><label for="kanri_flg">ユーザー種別</label></dt>
-      <dd><input type="text" name="kanri_flg" id="kanri_flg" value="<?=$row["kanri_flg"]?>"></dd>
-      <dt><label for="life_flg">在職種別</label></dt>
-      <dd><input type="text" name="life_flg" id="life_flg" value="<?=$row["life_flg"]?>"></dd>
+      <dd>
+        <select name="center" id="center">
+          <option selected hidden><?= $row["center"];?></option>
+          <?php echo $center; ?>
+        </select>
+      </dd>
     </dl>
     <input type="hidden" name="uid" value="<?=$uid?>">
     <input type="submit" value="送信">

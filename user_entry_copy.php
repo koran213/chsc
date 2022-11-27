@@ -9,8 +9,14 @@ $pdo = db_conn();
 //ログイン確認
 sschk();
 
-//２．データ登録SQL作成
-$sql = 'select * from center';
+//２．データ取得SQL作成
+$stmt   = $pdo->prepare("SELECT * FROM center"); //SQLをセット
+$status = $stmt->execute(); //SQLを実行→エラーの場合falseを$statusに代入
+
+//3. レコード取得
+while($row = $stmt->fetch()){
+  $rows[] = $row;
+}
 
 //3. データベース接続切断
 $pdo = null;
@@ -51,9 +57,9 @@ $pdo = null;
       <dd>
         <!-- method one -->
         <select name="center" >
-        <?php 
-        while($row = mysql_fetch_array($result)){
-          echo "<option value ='".$row['cc']."'>'".$row['cc']."'</option>";
+        <?php
+          foreach($rows as $r){
+          echo "<option value ='".$r['cc']."'>".$r['cc']."</option>";
         }
         ?>
         </select>

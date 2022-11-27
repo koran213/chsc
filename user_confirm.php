@@ -11,8 +11,8 @@ $lid = $_POST["lid"];
 $lpw = $_POST["lpw"];
 $role = $_POST["role"];
 $center = $_POST["center"];
-$kanri_flg = $_POST["kanri_flg"];
-$life_flg = $_POST["life_flg"];
+// $kanri_flg = $_POST["kanri_flg"];
+// $life_flg = $_POST["life_flg"];
 
 //2. lpwハッシュ化
 $hashed_lpw = password_hash($lpw, PASSWORD_DEFAULT);
@@ -22,8 +22,8 @@ include("./funcs.php");
 $pdo = db_conn();
 
 //4. データ登録SQL作成
-$sql = "INSERT INTO user(uname, lid, lpw, role, center, kanri_flg, life_flg)
-VALUES(:uname, :lid, :lpw, :role, :center, :kanri_flg, :life_flg)";
+$sql = "INSERT INTO user(uname, lid, lpw, role, center)
+VALUES(:uname, :lid, :lpw, :role, :center)";
 
 $stmt = $pdo->prepare($sql);
 
@@ -32,8 +32,8 @@ $stmt->bindValue(':lid', $lid, PDO::PARAM_STR);
 $stmt->bindValue(':lpw', $hashed_lpw, PDO::PARAM_STR);
 $stmt->bindValue(':role', $role, PDO::PARAM_STR);
 $stmt->bindValue(':center', $center, PDO::PARAM_STR);
-$stmt->bindValue(':kanri_flg', $kanri_flg, PDO::PARAM_INT);  
-$stmt->bindValue(':life_flg', $life_flg, PDO::PARAM_INT);  
+// $stmt->bindValue(':kanri_flg', $kanri_flg, PDO::PARAM_INT);  
+// $stmt->bindValue(':life_flg', $life_flg, PDO::PARAM_INT);  
 
 $status = $stmt->execute();//$statusにはtrue,falseが返る
 
